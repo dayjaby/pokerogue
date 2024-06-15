@@ -17,8 +17,8 @@ const timedEvents: TimedEvent[] = [
     name: "Pride Update",
     eventType: EventType.SHINY,
     shinyMultiplier: 2,
-    startDate: new Date(Date.UTC(2024, 5, 14, 0)),
-    endDate: new Date(Date.UTC(2024, 5, 21, 0)),
+    startDate: new Date(Date.UTC(2024, 5, 13, 0)),
+    endDate: new Date(Date.UTC(2024, 5, 14, 0)),
     bannerFilename: "pride-update"
   },
 ];
