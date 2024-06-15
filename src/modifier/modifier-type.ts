@@ -1238,6 +1238,7 @@ interface ModifierPool {
 
 const modifierPool: ModifierPool = {
   [ModifierTier.COMMON]: [
+    new WeightedModifierType(modifierTypes.MAP, (party: Pokemon[]) => party[0].scene.gameMode.isClassic && party[0].scene.currentBattle.waveIndex < 180 ? 100 : 0, 1),
     new WeightedModifierType(modifierTypes.POKEBALL, 6),
     new WeightedModifierType(modifierTypes.RARE_CANDY, 2),
     new WeightedModifierType(modifierTypes.POTION, (party: Pokemon[]) => {
@@ -1259,7 +1260,7 @@ const modifierPool: ModifierPool = {
     new WeightedModifierType(modifierTypes.LURE, 2),
     new WeightedModifierType(modifierTypes.TEMP_STAT_BOOSTER, 4),
     new WeightedModifierType(modifierTypes.BERRY, 2),
-    new WeightedModifierType(modifierTypes.TM_COMMON, 1),
+    new WeightedModifierType(modifierTypes.TM_COMMON, 5),
   ].map(m => {
     m.setTier(ModifierTier.COMMON); return m;
   }),
@@ -1317,8 +1318,7 @@ const modifierPool: ModifierPool = {
     new WeightedModifierType(modifierTypes.EVOLUTION_ITEM, (party: Pokemon[]) => {
       return Math.min(Math.ceil(party[0].scene.currentBattle.waveIndex / 15), 8);
     }, 8),
-    new WeightedModifierType(modifierTypes.MAP, (party: Pokemon[]) => party[0].scene.gameMode.isClassic && party[0].scene.currentBattle.waveIndex < 180 ? 1 : 0, 1),
-    new WeightedModifierType(modifierTypes.TM_GREAT, 2),
+    new WeightedModifierType(modifierTypes.TM_GREAT, 10),
     new WeightedModifierType(modifierTypes.MEMORY_MUSHROOM, (party: Pokemon[]) => {
       if (!party.find(p => p.getLearnableLevelMoves().length)) {
         return 0;
@@ -1357,10 +1357,10 @@ const modifierPool: ModifierPool = {
     new WeightedModifierType(modifierTypes.REVIVER_SEED, 4),
     new WeightedModifierType(modifierTypes.CANDY_JAR, 5),
     new WeightedModifierType(modifierTypes.ATTACK_TYPE_BOOSTER, 10),
-    new WeightedModifierType(modifierTypes.TM_ULTRA, 8),
+    new WeightedModifierType(modifierTypes.TM_ULTRA, 24),
     new WeightedModifierType(modifierTypes.RARER_CANDY, 4),
     new WeightedModifierType(modifierTypes.GOLDEN_PUNCH, 2),
-    new WeightedModifierType(modifierTypes.IV_SCANNER, 4),
+    new WeightedModifierType(modifierTypes.IV_SCANNER, 2),
     new WeightedModifierType(modifierTypes.EXP_CHARM, 8),
     new WeightedModifierType(modifierTypes.EXP_SHARE, 12),
     new WeightedModifierType(modifierTypes.EXP_BALANCE, 4),
